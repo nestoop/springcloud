@@ -75,6 +75,14 @@
             <artifactId>spring-boot-starter-aop</artifactId>
             <version>${spring.boot.version}</version>
         </dependency>
+
+        <!-- 监控参数 -->
+        <dependency>
+            <groupId>io.micrometer</groupId>
+            <artifactId>micrometer-registry-graphite</artifactId>
+            <version>1.0.0-rc.5</version>
+        </dependency>
+
     </dependencies>
 
     <build>

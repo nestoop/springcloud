@@ -18,6 +18,8 @@ import org.springframework.stereotype.Component;
 @Component
 public class ServerMonitor {
 
+    private static final org.slf4j.Logger log = org.slf4j.LoggerFactory.getLogger(ServerMonitor.class);
+
     @Autowired
     private CounterService counterService;
     @Autowired
@@ -29,7 +31,7 @@ public class ServerMonitor {
      */
     @Before("execution(* com.nest.admin.*.*(..))")
     public void countServiceInvoker(JoinPoint joinPoint) {
-        System.out.println("[AOP] signature = " + joinPoint.getSignature());
+        log.info("[AOP] signature = " + joinPoint.getSignature());
         counterService.increment(joinPoint.getSignature() + "");
     }
 
@@ -43,7 +45,7 @@ public class ServerMonitor {
         long start = System.currentTimeMillis();
         proceedingJoinPoint.proceed();
         long end = System.currentTimeMillis();
-        System.out.println("[AOP] used call method time " + (end - start) + ", signature = " + proceedingJoinPoint.getSignature());
+        log.info("[AOP] used call method time " + (end - start) + ", signature = " + proceedingJoinPoint.getSignature());
         gaugeService.submit(proceedingJoinPoint.getSignature().toLongString(), end - start);
     }
 

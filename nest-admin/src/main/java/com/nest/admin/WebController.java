@@ -10,8 +10,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/")
 public class WebController {
 
+    private static final org.slf4j.Logger logger = org.slf4j.LoggerFactory.getLogger(WebController.class);
+
     @RequestMapping("/test")
-    public String get(){
-        return null;
+    public String test(){
+        logger.info("[Controller] test method...");
+        return "test";
     }
 }
