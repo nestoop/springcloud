@@ -20,6 +20,7 @@
 		<module>nest-conf</module>
 		<module>nest-eureka-server</module>
 		<module>nest-sleuth</module>
+		<module>nest-security</module>
 	</modules>
 
     <properties>
