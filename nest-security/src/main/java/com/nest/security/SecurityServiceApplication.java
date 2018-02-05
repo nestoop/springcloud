@@ -14,6 +14,9 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 public class SecurityServiceApplication {
 
 	public static void main(String[] args) {
+		IFunctionInterface<String, String> fi1 = (o) -> "hello1 function interface annotation" + o;
+		System.out.println(fi1.test("000"));
 		SpringApplication.run(SecurityServiceApplication.class, args);
+
 	}
 }
