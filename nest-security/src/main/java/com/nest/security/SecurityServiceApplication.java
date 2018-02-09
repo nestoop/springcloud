@@ -1,6 +1,8 @@
 package com.nest.security;
 
 import de.codecentric.boot.admin.config.EnableAdminServer;
+import io.prometheus.client.spring.boot.EnablePrometheusEndpoint;
+import io.prometheus.client.spring.boot.EnableSpringBootMetricsCollector;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -13,6 +15,8 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 @EnableAdminServer
 @EnableDiscoveryClient
 @SpringBootApplication
+@EnablePrometheusEndpoint
+@EnableSpringBootMetricsCollector
 public class SecurityServiceApplication implements CommandLineRunner{
 
 	@Autowired
