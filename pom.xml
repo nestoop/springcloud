@@ -21,6 +21,7 @@
 		<module>nest-eureka-server</module>
 		<module>nest-sleuth</module>
 		<module>nest-security</module>
+		<module>nest-algorithm</module>
 	</modules>
 
     <properties>
