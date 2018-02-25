@@ -1,5 +1,6 @@
 package com.nest.sleuth.web;
 
+import com.nest.sleuth.advice.CommonException;
 import com.nest.sleuth.service.SleuthService1;
 import com.nest.sleuth.service.SleuthService2;
 import com.nest.sleuth.service.SleuthService3;
@@ -39,6 +40,12 @@ public class SleuthController {
     public String service3() {
         log.info("[SleuthController] request service3");
         return sleuthService3.service();
+    }
+
+    @RequestMapping(value = "/demo4")
+    public String service4() throws CommonException {
+        log.info("[SleuthController] request service4");
+        throw new CommonException("测试Exception");
     }
 
 
